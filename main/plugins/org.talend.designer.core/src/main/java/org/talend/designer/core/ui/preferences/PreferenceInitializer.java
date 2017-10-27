@@ -161,17 +161,8 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer {
         store.setDefault(TalendDesignerPrefConstants.NOT_SHOW_WARNING_WHEN_DELETE_LINK_WITH_JOBLETTRIGGERLINKCOMPONENT, false);
 
         if (PluginChecker.isSVNProviderPluginLoaded()) {
-            String pAutoCheck = System.getProperty("svn.update.info.check");
-            boolean enableAutoCheckSvn = pAutoCheck == null ? true : Boolean.valueOf(pAutoCheck);
-            String pInterval = System.getProperty("svn.update.info.interval");
-            int svnCheckInterval = 1;
-            try {
-                svnCheckInterval = Integer.parseInt(pInterval);
-            } catch (NumberFormatException e) {
-                svnCheckInterval = 1;
-            }
-            store.setDefault(ITalendCorePrefConstants.SVN_UPDATE_INFO_AUTO_CHECK, enableAutoCheckSvn);
-            store.setDefault(ITalendCorePrefConstants.SVN_UPDATE_INFO_AUTO_CHECK_TIME_INTERVAL, svnCheckInterval);
+            store.setDefault(ITalendCorePrefConstants.SVN_UPDATE_INFO_AUTO_CHECK, true);
+            store.setDefault(ITalendCorePrefConstants.SVN_UPDATE_INFO_AUTO_CHECK_TIME_INTERVAL, 1);
             store.setDefault(ITalendCorePrefConstants.AUTO_REFRESH_LOCKS, true);
             store.setDefault(ITalendCorePrefConstants.PERFORMANCE_TAC_CONNECTION_TIMEOUT, 5);
             store.setDefault(ITalendCorePrefConstants.PERFORMANCE_TAC_READ_TIMEOUT, 60);
